@@ -9,6 +9,18 @@ You should be at least comfortable with looking for solutions in component datas
 2. [HMC5883L Compass](https://www.electronicwings.com/avr-atmega/magnetometer-hmc5883l-interfacing-with-atmega16)
 3. [u-blox 8 GPS Receiver Description](https://www.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_%28UBX-13003221%29_Public.pdf)
 
+## Compiling and flashing code to Arduino
+There is a Makefile that you should copy into the same folder as your code. Note that the Makefile looks for any main.c file in the same folder as it is. I have not gone round to making the Makefile more adaptable so each main.c file requires its own Makefile and folder.
+Run the following in your terminal to compile the main.c:
+```
+make
+```
+If you are using Windows, run the following line in cmd.exe:
+```
+avrdude -c usbtiny -p m328p -v -v -U flash:w:main.hex:i
+```
+If you are using Mac or Linux, see if the preceding line runs in terminal. I do not have the means to try it so I have no idea.
+
 ## BN-880 Wiring
 Here is how you hook up the BN-880. SDA and SCL are for the compass. TX and RX are the serial lines for the GPS.
 ![alt text](https://github.com/cyccheung/avrTutorials/blob/master/images/GPS%20Wiring.JPG "GPS Wiring")
