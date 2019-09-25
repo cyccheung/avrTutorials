@@ -21,6 +21,36 @@ avrdude -c usbtiny -p m328p -v -v -U flash:w:main.hex:i
 ```
 If you are using Mac or Linux, see if the preceding line runs in terminal. I do not have the means to try it so I have no idea.
 
+## Common Bugs and Problems
+1. Bad connection to Arduino board
+```
+avrdude: initialization failed, rc=-1
+		 Double check connections and try again, or use -F to override this check.
+
+avrdude done. Thank you.
+```
+Try reversing how the ribbon cable is connected to the Arduino. That is usually the fix although other connection issues are possible.
+
+2. Bootloader for Arduino
+Sometimes when you are debugging, it is convenient to switch back to Arduino just to make sure the hardware is working correctly. Once you have flashed an AVR C code to the Arduino, you will be unable to upload the code using the Arduino IDE. You will see a message like this:
+```
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x77
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x77
+...
+avrdude done.  Thank you.
+
+Problem uploading to board.  See http://www.arduino.cc/en/Guide/Troubleshooting#upload for suggestions.
+```
+Arduino IDE will take a while to attempt all 10 tries. To solve this, plug in the Arduino as you would when you flash AVR C code. Then in the Arduino IDE, go to the "Tools" drop down menus at the top and then click on "Burn Bootloader".
+
+3. Serial isn't working
+A couple of our devices use serial to send data to the Arduino. Sometimes it just does not work and there are a few possible reasons why.
+1) Make sure the baud rate is correct
+2) Make sure the device has power
+3) Make sure the Tx and Rx lines are connected correctly. It is worth it to flip these two even if you think you have it right
+
 ## BN-880 Wiring
 Here is how you hook up the BN-880. SDA and SCL are for the compass. TX and RX are the serial lines for the GPS.
 ![alt text](https://github.com/cyccheung/avrTutorials/blob/master/images/GPS%20Wiring.JPG "GPS Wiring")
