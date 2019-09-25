@@ -22,7 +22,7 @@ avrdude -c usbtiny -p m328p -v -v -U flash:w:main.hex:i
 If you are using Mac or Linux, see if the preceding line runs in terminal. I do not have the means to try it so I have no idea.
 
 ## Common Bugs and Problems
-1. Bad connection to Arduino board
+**1. Bad connection to Arduino board**
 ```
 avrdude: initialization failed, rc=-1
 		 Double check connections and try again, or use -F to override this check.
@@ -31,7 +31,7 @@ avrdude done. Thank you.
 ```
 Try reversing how the ribbon cable is connected to the Arduino. That is usually the fix although other connection issues are possible.
 
-2. Bootloader for Arduino
+**2. Bootloader for Arduino**
 ```
 avrdude: stk500_recv(): programmer is not responding
 avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x77
@@ -44,7 +44,7 @@ Problem uploading to board.  See http://www.arduino.cc/en/Guide/Troubleshooting#
 ```
 Sometimes when you are debugging, it is convenient to switch back to Arduino just to make sure the hardware is working correctly. Once you have flashed an AVR C code to the Arduino, you will be unable to upload the code using the Arduino IDE. Arduino IDE will take a while to attempt all 10 tries. To solve this, plug in the Arduino as you would when you flash AVR C code. Then in the Arduino IDE, go to the "Tools" drop down menus at the top and then click on "Burn Bootloader".
 
-3. Serial isn't working
+**3. Serial isn't working**
 A couple of our devices use serial to send data to the Arduino. Sometimes it just does not work and there are a few possible reasons why.
 * Make sure the baud rate is correct
 * Make sure the device has power
