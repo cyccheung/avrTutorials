@@ -29,7 +29,8 @@ avrdude: initialization failed, rc=-1
 
 avrdude done. Thank you.
 ```
-Try reversing how the ribbon cable is connected to the Arduino. That is usually the fix although other connection issues are possible.
+ Try reversing how the ribbon cable is connected to the Arduino. That is usually the fix although other connection issues are possible.
+
 
 **2. Bootloader for Arduino**
 ```
@@ -42,10 +43,12 @@ avrdude done.  Thank you.
 
 Problem uploading to board.  See http://www.arduino.cc/en/Guide/Troubleshooting#upload for suggestions.
 ```
-Sometimes when you are debugging, it is convenient to switch back to Arduino just to make sure the hardware is working correctly. Once you have flashed an AVR C code to the Arduino, you will be unable to upload the code using the Arduino IDE. Arduino IDE will take a while to attempt all 10 tries. To solve this, plug in the Arduino as you would when you flash AVR C code. Then in the Arduino IDE, go to the "Tools" drop down menus at the top and then click on "Burn Bootloader".
+ Sometimes when you are debugging, it is convenient to switch back to Arduino just to make sure the hardware is working correctly. Once you have flashed an AVR C code to the Arduino, you will be unable to upload the code using the Arduino IDE. Arduino IDE will take a while to attempt all 10 tries. To solve this, plug in the Arduino as you would when you flash AVR C code. Then in the Arduino IDE, go to the "Tools" drop down menus at the top and then click on "Burn Bootloader".
+
 
 **3. Serial isn't working**
-A couple of our devices use serial to send data to the Arduino. Sometimes it just does not work and there are a few possible reasons why.
+
+ A couple of our devices use serial to send data to the Arduino. Sometimes it just does not work and there are a few possible reasons why.
 * Make sure the baud rate is correct
 * Make sure the device has power
 * Make sure the Tx and Rx lines are connected correctly. It is worth it to flip these two even if you think you have it right
